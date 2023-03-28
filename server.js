@@ -15,6 +15,10 @@ const app= express()
 app.use(express.json());
 app.use(express.urlencoded({extended:false}))
 app.use(cors());
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Credentials', 'true');
+  next();
+});
 //routes
 app.use('/api/blogs',require('./routes/blogRoutes'));
 app.use('/api/users',require('./routes/userRoutes'))
