@@ -17,7 +17,9 @@ app.use(express.urlencoded({extended:false}))
 app.use(cors());
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Credentials', 'true');
+  res.send(" api is running ");
   next();
+  
 });
 //routes
 app.use('/api/blogs',require('./routes/blogRoutes'));
